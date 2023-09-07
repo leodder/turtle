@@ -15,6 +15,9 @@ import { useRouter } from 'next/router'
 // styles
 import styles from './table.module.sass';
 
+//RWD
+// import { useMediaQuery } from '@mui/material';
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: '#B5CC22',
@@ -39,6 +42,7 @@ export default function CustomizedTables({ keyword }) {
   const router = useRouter()
   const [jsonData, setJsonData] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
+  // const isXsScreen = useMediaQuery('(max-width:389px)'); // 定義 xs 螢幕尺寸的最大寬度
 
 
   useEffect(() => {
@@ -67,24 +71,24 @@ export default function CustomizedTables({ keyword }) {
 
   return (
     <div className={`${styles.bgcolor}`}>
-      <TableContainer component={Paper} sx={{ width: 1192 }} className={`${styles.tablecontainer}`}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <TableContainer component={Paper} className={`${styles.tablecontainer}`}>
+        <Table  aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell align="center" className={`${styles.thead}`}>縣市</StyledTableCell>
               <StyledTableCell align="center" className={`${styles.thead}`}>區域</StyledTableCell>
               <StyledTableCell align="center" className={`${styles.thead}`}>站點名稱</StyledTableCell>
-              <StyledTableCell align="center" className={`${styles.thead}`}>可借車輛</StyledTableCell>
-              <StyledTableCell align="center" className={`${styles.thead}`}>可還空位</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.theadxs}`}>可借車輛</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.theadxs}`}>可還空位</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {filteredData &&
               filteredData.map((data, index) => (
                 <StyledTableRow key={index}>
-                  <StyledTableCell align="center" className={`${styles.tbody}`}>台北市</StyledTableCell>
-                  <StyledTableCell align="center" className={`${styles.tbody}`}>{data.sarea}</StyledTableCell>
-                  <StyledTableCell align="center" className={`${styles.tbody}`}>{data.sna}</StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbody}`}><span className={`${styles.tbodyrwd}`}>台北市</span></StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbody}`}><span className={`${styles.tbodyrwd}`}>{data.sarea}</span></StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbodysna}`}><span className={`${styles.tbodysnarwd}`}>{data.sna}</span></StyledTableCell>
                   <StyledTableCell align="center" className={`${styles.tbodyColor}`}>{data.tot}</StyledTableCell>
                   <StyledTableCell align="center" className={`${styles.tbodyColor}`}>{data.sbi}</StyledTableCell>
                 </StyledTableRow>

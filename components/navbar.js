@@ -53,7 +53,7 @@ function ResponsiveAppBar() {
   // const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const isXsScreen = useMediaQuery('(max-width:480px)'); // 定義 xs 螢幕尺寸的最大寬度
+  const isXsScreen = useMediaQuery('(max-width:767px)'); // 定義 xs 螢幕尺寸的最大寬度
   // console.log('Current Path:', router.asPath);
 
   const handleOpenNavMenu = (event) => {

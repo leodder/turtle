@@ -1,3 +1,5 @@
+@import '@/styles/mixins/responsive.sass'
+
 .bgcolor
     background-color: #ffffff
     width: 100%
@@ -5,12 +7,17 @@
     align-items: center
     justify-content: center
     margin-top: 20px
+    @include mobile-m
 
 .tablecontainer
     border-radius: 28px 28px 28px 28px
     display: flex
     align-items: center
     justify-content: center
+    width: 1192px
+    @include mobile-m
+        width: 311px
+        border-radius: 8px 8px 8px 8px
 
 .thead
     font-family: Noto Sans CJK TC
@@ -19,6 +26,24 @@
     line-height: 24px
     letter-spacing: 0em
     text-align: center
+    @include mobile-m
+        font-size: 16px
+        font-weight: 500
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: center
+        height: 66px
+        padding: 0
+
+.theadxs
+    font-family: Noto Sans CJK TC
+    font-size: 18px
+    font-weight: 500
+    line-height: 24px
+    letter-spacing: 0em
+    text-align: center
+    @include mobile-m
+        display: none
 
 .tbody
     font-family: Noto Sans CJK TC
@@ -28,6 +53,50 @@
     letter-spacing: 0em
     text-align: center
     height: 72px
+    @include mobile-m
+        font-size: 14px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: center
+        height: 66px
+        width: 80.5px
+
+.tbodyrwd
+    @include mobile-m
+        font-size: 14px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: center
+
+.tbodysna
+    font-family: Noto Sans CJK TC
+    font-size: 16px
+    font-weight: 400
+    line-height: 24px
+    letter-spacing: 0em
+    text-align: center
+    height: 72px
+    @include mobile-m
+        font-size: 14px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: center
+        width: 150px
+        height: 66px
+
+.tbodysnarwd
+    @include mobile-m
+        font-size: 14px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: center
+        width: 132px
+        height: 48px
+        flex-wrap: wrap
 
 .tbodyColor
     font-family: Noto Sans CJK TC
@@ -38,3 +107,5 @@
     text-align: center
     height: 72px
     color: #B5CC22
+    @include mobile-m
+        display: none
