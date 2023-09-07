@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 
 // hook
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'
 
 // styles
 import styles from './table.module.sass';
@@ -35,8 +36,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function CustomizedTables({ keyword }) {
+  const router = useRouter()
   const [jsonData, setJsonData] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
+
 
   useEffect(() => {
     fetch('https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json')
@@ -68,22 +71,22 @@ export default function CustomizedTables({ keyword }) {
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell className={`${styles.thead}`}>縣市</StyledTableCell>
-              <StyledTableCell align="right" className={`${styles.thead}`}>區域</StyledTableCell>
-              <StyledTableCell align="right" className={`${styles.thead}`}>站點名稱</StyledTableCell>
-              <StyledTableCell align="right" className={`${styles.thead}`}>可借車輛</StyledTableCell>
-              <StyledTableCell align="right" className={`${styles.thead}`}>可還空位</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.thead}`}>縣市</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.thead}`}>區域</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.thead}`}>站點名稱</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.thead}`}>可借車輛</StyledTableCell>
+              <StyledTableCell align="center" className={`${styles.thead}`}>可還空位</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {filteredData &&
               filteredData.map((data, index) => (
                 <StyledTableRow key={index}>
-                  <StyledTableCell align="right" className={`${styles.tbody}`}>台北市</StyledTableCell>
-                  <StyledTableCell align="right" className={`${styles.tbody}`}>{data.sarea}</StyledTableCell>
-                  <StyledTableCell align="right" className={`${styles.tbody}`}>{data.sna}</StyledTableCell>
-                  <StyledTableCell align="right" className={`${styles.tbodyColor}`}>{data.tot}</StyledTableCell>
-                  <StyledTableCell align="right" className={`${styles.tbodyColor}`}>{data.sbi}</StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbody}`}>台北市</StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbody}`}>{data.sarea}</StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbody}`}>{data.sna}</StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbodyColor}`}>{data.tot}</StyledTableCell>
+                  <StyledTableCell align="center" className={`${styles.tbodyColor}`}>{data.sbi}</StyledTableCell>
                 </StyledTableRow>
               ))}
           </TableBody>

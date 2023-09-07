@@ -14,6 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+//router
+import { useRouter } from 'next/router';
+
 //link
 import Link from 'next/link';
 
@@ -37,14 +40,21 @@ const theme = createTheme({
     },
   },
 });
-const pages = ['使用說明', '收費方式', '站點資訊', '最新消息', '活動專區'];
+const pages = [
+  { title: '使用說明', link: 'http://localhost:3000/ubike/directions' },
+  { title: '收費方式', link: 'http://localhost:3000/ubike/fee' },
+  { title: '站點資訊', link: 'http://localhost:3000/ubike/stations' },
+  { title: '最新消息', link: 'http://localhost:3000/ubike/news' },
+  { title: '活動專區', link: 'http://localhost:3000/ubike/activities' }
+];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
+  // const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const isXsScreen = useMediaQuery('(max-width:480px)'); // 定義 xs 螢幕尺寸的最大寬度
-
+  // console.log('Current Path:', router.asPath);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -76,14 +86,16 @@ function ResponsiveAppBar() {
         </Link>
           
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} >
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Button
-                key={page}
+                key={index}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#677510', display: 'block' }}
                 className={`${styles.bardetail}`}
+                sx={{ my: 2, display: 'block',
+                color: '#677510' }}
+                
               >
-                {page}
+                <Link href={page.link}>{page.title}</Link>
               </Button>
             ))}
           </Box>
@@ -128,9 +140,11 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, index) => (
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                <Link href={page.link}>
+                  <Typography textAlign="center">{page.title}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>

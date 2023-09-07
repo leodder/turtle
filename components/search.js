@@ -16,7 +16,7 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const keyword = e.currentTarget.keyword.value;
-    router.push(`/bikes/?keyword=${keyword}`);
+    router.push(`/ubike/stations?keyword=${keyword}`);
   };
 
   return (

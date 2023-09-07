@@ -9,7 +9,11 @@ import CustomizedTables from 'components/table.js'
 
 function PublicJSONPage() {
   const router = useRouter();
+  // const { ubike, stations } = router.query;
   const keyword = router.query.keyword || ''
+  // console.log('ubike:', ubike);
+  // console.log('stations:', stations);
+  // console.log('keyword:', keyword)
   // const [jsonData, setJsonData] = useState(null);
   // const [selectedItems, setSelectedItems] = useState([]);
 
