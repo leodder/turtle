@@ -25,10 +25,9 @@ export default function SelectLabels({ onCitySelect }) {
         value={city}
         onChange={handleChange}
         displayEmpty
-        sx={{ width: 175, height: 40 , outline: 'none', border: 'none'}}
         className={`${styles.bgcolor}`}
       >
-        <MenuItem value="">請選擇城市</MenuItem>
+        <MenuItem value="" className={`${styles.selectcity}`}>選擇縣市</MenuItem>
         <MenuItem value="台北市">台北市</MenuItem>
         <MenuItem value="台北市">台北市</MenuItem>
         <MenuItem value="台北市">台北市</MenuItem>

@@ -5,7 +5,6 @@ import * as React from 'react';
 //styles
 import styles from './checkbox.module.sass';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import customstyles from './checkbox.module.css'
 import { styled } from '@mui/material/styles';
 
 
@@ -94,14 +93,15 @@ function CheckboxGroup() {
         />
         全部勾選
       </label>
-      <br />
-
+      <span></span>
+      {/* <br /> */}
       {Object.keys(options).map((optionName) => (
         <label key={optionName} className={`${styles.selectone}`}>
         <StyledCheckbox
             checked={options[optionName]}
             onChange={handleOptionChange(optionName)}
             value={optionName}
+            // className={`${styles.styledcheckbox}`}
             // sx={{color:'ochre.light'}}
             // color="secondary"
           />

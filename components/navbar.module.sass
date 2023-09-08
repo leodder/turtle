@@ -1,12 +1,18 @@
+@import '@/styles/mixins/responsive.sass'
+
 .appbar
     background-color: white
+    padding: 0
+    @include mobile-m
+        // width: 311px
 
 .container
     background-color: white
     // width: 1192px
 
 .link
-    // margin-left: 3%
+    @include mobile-m
+        margin-left: 4%
 
 .bardetail
     margin-left: 40px

@@ -2,7 +2,7 @@
 
 .input
     height: 40px
-    weight: 277px
+    width: 277px
     padding: 8px 16px 8px 16px
     font-family: Noto Sans CJK TC
     font-size: 18px
@@ -18,9 +18,20 @@
     outline: none
     &:focus
         color: #B5CC22
+    @include mobile-m
+        width: 311px
+        height: 40px
+        // margin-top: 136px
+        // margin-left: 32px
+        padding: 8px 16px 8px 16px
+        border-radius: 8px
+        gap: 196px
+        font-size: 16px
 
 .formmargin
     margin-left: 12px
+    @include mobile-m
+        margin-left: 0px
 
 .search
     color: #AEAEAE

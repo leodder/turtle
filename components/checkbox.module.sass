@@ -8,6 +8,14 @@
     letter-spacing: 0em
     text-align: left
     color: #323232
+    display: flex
+    align-items: center
+    @include mobile-m
+        font-size: 16px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: left
 
 .selectone
     font-family: Noto Sans CJK TC
@@ -17,13 +25,26 @@
     letter-spacing: 0em
     text-align: left
     color: #323232
+    display: inline-block
     margin-right: 8%
-
+    margin-top: 14px
+    @include mobile-m
+        font-size: 16px
+        font-weight: 400
+        line-height: 24px
+        letter-spacing: 0em
+        text-align: left
+        margin-right: 4%
+        margin-top: 0px
+        margin-bottom: 2px
 // .selectone:nth-child(4n)
 //     clear: left
 
-.bgsetting
-    margin-top: 256px
+// .bgsetting
+//     margin-top: 256px
 
-.checkboxcolor
-    color: #B5CC22
+// .checkboxcolor
+//     color: #B5CC22
+
+// .styledcheckbox
+//     margin-top: 16px

@@ -10,14 +10,30 @@
     text-align: center
     border: none
     color: #323232
-    padding: 8px 16px 8px 16px
+    padding: 14px 8px 8px 0px
+    width: 175px
+    height: 40px
     // border: none !important
     // outline: none !important
+    @include mobile-m
+        width: 311px
+        height: 40px
+        font-family: Noto Sans CJK TC
+        font-size: 16px
+        font-weight: 500
+        line-height: 20px
+        letter-spacing: 0.10000000149011612px
+        text-align: center
+        padding: 14px 8px 8px 4px
+        text-align: left
 
+.selectcity
+    color: #AEAEAE
     //無效
 // .customFormControl
 //     outline: none !important
 //     border: none !important
+    @include mobile-m
 
 .formcontrol
     // width: Fixed (175px)
@@ -29,6 +45,12 @@
     border: none !important
     gap: 16px
     outline: none !important
+    width: 175px
+    height: 40px
+    @include mobile-m
+        width: 311px
+        height: 40px
+        margin-top: 12px
 
     //無效
 // .customSelect
