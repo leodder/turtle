@@ -75,7 +75,7 @@ function ResponsiveAppBar() {
     <ThemeProvider theme={theme}>
     {/* <div className={`${styles.bgsetting}`}> */}
     <AppBar position="static" className={`${styles.appbar}`}>
-      <Container maxWidth="lg" className={`${styles.container}`}>
+      <Container  className={`${styles.container}`}>
         <Toolbar disableGutters>
         <Link href="https://www.youbike.com.tw/region/main/" className={`${styles.link}`}>
       {isXsScreen ? (
@@ -111,7 +111,7 @@ function ResponsiveAppBar() {
           </Box>
 
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}
-          paddingLeft='68%'>
+          paddingLeft='63%'>
             <IconButton
               size="large"
               aria-label="account of current user"

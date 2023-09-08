@@ -56,9 +56,6 @@ function CheckboxGroup() {
   const StyledCheckbox = styled(Checkbox)(({ theme }) => ({
     '& .MuiIconButton-root': {
       color: '#AEAEAE', // 外框線顏色
-      '&:hover': {
-        backgroundColor: '#AEAEAE', // hover時的顏色
-      },
     },
     '&.Mui-checked': {
       color: '#B5CC22', // checked狀態的顏色
@@ -89,7 +86,7 @@ function CheckboxGroup() {
         defaultChecked={selectAll} // 使用 defaultChecked 設定初始勾選狀態
         onChange={handleSelectAllChange}
         // color="success"
-        // className={customstyles.customCheckbox}
+        className={`${styles.customCheckbox}`}
         />
         全部勾選
       </label>
@@ -101,7 +98,7 @@ function CheckboxGroup() {
             checked={options[optionName]}
             onChange={handleOptionChange(optionName)}
             value={optionName}
-            // className={`${styles.styledcheckbox}`}
+            className={`${styles.customCheckbox}`}
             // sx={{color:'ochre.light'}}
             // color="secondary"
           />

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import ResponsiveAppBar from '/components/navbar.js';
 import { useRouter } from 'next/router';
 
 //component
+import ResponsiveAppBar from '/components/navbar.js';
 import Aline from '/components/aline.js'
 import Form from '/components/form.js'
 import CustomizedTables from 'components/table.js'
