@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -54,22 +55,40 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const isXsScreen = useMediaQuery('(max-width:767px)'); // 定義 xs 螢幕尺寸的最大寬度
+  const [isNavMenuOpen, setIsNavMenuOpen] = React.useState(false); // 新增狀態變量
   // console.log('Current Path:', router.asPath);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    setIsNavMenuOpen(true); // 打開菜單時設置狀態為 true
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+    setIsNavMenuOpen(false); // 關閉菜單時設置狀態為 false
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  // const handleOpenNavMenu = (event) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
+  // const handleOpenUserMenu = (event) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
+
+  // const handleCloseNavMenu = () => {
+  //   setAnchorElNav(null);
+  // };
+
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null);
+  // };
 
   return (
     <ThemeProvider theme={theme}>
@@ -110,7 +129,21 @@ function ResponsiveAppBar() {
             </Tooltip>
           </Box>
 
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}
+          <Box sx={{ display: { xs: 'flex', md: 'none' }, paddingLeft: '63%' }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={isNavMenuOpen ? handleCloseNavMenu : handleOpenNavMenu}
+                sx={{ color: 'ochre.light' }}
+              >
+                {isNavMenuOpen ? <CloseIcon /> : <MenuIcon />} 
+                {/* 根據狀態顯示不同的圖標 */}
+              </IconButton>
+
+
+          {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}
           paddingLeft='63%'>
             <IconButton
               size="large"
@@ -121,7 +154,7 @@ function ResponsiveAppBar() {
               sx={{color:'ochre.light'}}
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
