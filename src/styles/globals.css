@@ -13,6 +13,20 @@
 
   /* --primary-color: #B5CC22; */
 
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border: none;
+  }
+  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border: none;
+  }
+  .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: none;
+  }
+  .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused .MuiInputAdornment-root .MuiSvgIcon-root path {
+    fill: transparent;
+  }
+
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
